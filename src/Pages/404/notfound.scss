@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@900&display=swap");
+
+.custom-shape-divider-bottom-1632060824 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1632060824 svg {
+  position: relative;
+  display: block;
+  width: calc(127% + 1.3px);
+  height: 249px;
+}
+
+.custom-shape-divider-bottom-1632060824 .shape-fill {
+  fill: #8ae475;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1632060824 svg {
+    width: calc(127% + 1.3px);
+    height: 103px;
+  }
+}
+.errorPage {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.errorPage img {
+  width: 40%;
+}
+.errorPage p {
+  width: 50%;
+  font-size: 4em;
+  font-family: sans-serif;
+  margin-top: 17rem;
+  font-family: "Gluten", cursive;
+}
+@media screen and (max-width: 900px) {
+  .errorPage {
+    width: 100%;
+  }
+  .errorPage img {
+    width: 50%;
+  }
+  .errorPage p {
+    width: 50%;
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  .errorPage img {
+    width: 100%;
+  }
+  .errorPage p {
+    margin-top: -1rem;
+    margin-left: 5rem;
+    width: 60%;
+    text-align: center;
+  }
+}

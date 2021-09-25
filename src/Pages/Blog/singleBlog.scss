@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap");
+* {
+  box-sizing: border-box;
+}
+.Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.singlePage {
+  width: 70%;
+  margin-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: "Poppins", sans-serif;
+  & .single_img {
+    text-align: center;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 30rem;
+      object-fit: cover;
+    }
+  }
+  & .single_title {
+    & h1 {
+      padding: 0 1rem;
+    }
+    text-align: center;
+    & .desc {
+      text-align: center;
+    }
+    & p span {
+      color: rgb(1, 156, 149);
+      text-align: start;
+    }
+    & .desc {
+      text-align: justify;
+      justify-content: center;
+      padding: 0rem;
+    }
+  }
+}
+.Dataupdate {
+  margin: 10px;
+  font: 3rem large;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+.Dataupdate:focus {
+  outline: none;
+}
+.DataUpdateDesc {
+  margin: 10px;
+  font: 1.5rem large;
+  text-align: center;
+  border: none;
+}
+.DataUpdateDesc:focus {
+  outline: none;
+}
+.btn_admin {
+  background-color: transparent;
+  border: none;
+  padding: 0 1rem;
+  font-size: 2em;
+}
+.btn_admin1 {
+  border: none;
+  color: #fff;
+  background-color: rgb(3, 77, 73);
+  overflow: hidden;
+  padding: 0 1em;
+  height: 2rem;
+  border-radius: 15px;
+}
+@media screen and(max-width:600px) {
+  .singlePage {
+    width: 100%;
+    margin-bottom: 5em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: "Poppins", sans-serif;
+    padding: 0 20px;
+    & .single_img {
+      text-align: center;
+      overflow: hidden;
+      & img {
+        width: 100%;
+        height: 16rem;
+        object-fit: cover;
+      }
+    }
+  }
+  .Dataupdate {
+    margin: 10px 0;
+    font: 1.8rem large;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+  .Dataupdate:focus {
+    outline: none;
+  }
+  .DataUpdateDesc {
+    margin: 10px 0;
+    font: 1rem large;
+    text-align: center;
+    border: none;
+  }
+  .DataUpdateDesc:focus {
+    outline: none;
+  }
+}

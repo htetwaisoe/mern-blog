@@ -1,0 +1,47 @@
+.form_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  & .image_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    & img {
+      margin-top: 3rem;
+      width: 90%;
+      height: 25rem;
+      object-fit: cover;
+    }
+  }
+  & .form_group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 3rem 0;
+    & input:first-child {
+      margin: 5rem auto;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #000;
+    }
+    & input:focus {
+      outline: none;
+      text-align: center;
+      font: 2em sans-serif;
+    }
+    & button {
+      margin-top: 2rem;
+      border: none;
+      text-align: center;
+      width: 20%;
+      height: 2rem;
+      border: 1px solid black;
+      background-color: blue;
+      color: #fff;
+    }
+  }
+}
