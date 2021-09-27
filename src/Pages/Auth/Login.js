@@ -7,7 +7,7 @@ import { useHistory } from "react-router";
 const Login = () => {
   const location = useHistory();
   useEffect(() => {
-    const getdata = localStorage.getItem("user");
+    const getdata = localStorage.getItem("user_igrisLogin_setUp_adm");
     if (getdata) {
       // window.location.replace("/blog");
       location.goBack();
@@ -22,14 +22,17 @@ const Login = () => {
     e.preventDefault();
     setError(false);
     try {
-      const { data } = await axios.post("http://localhost:5000/users/login", {
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        "https://blog-mern-igris.herokuapp.com/users/login",
+        {
+          email,
+          password,
+        }
+      );
       setLoading(true);
       setData(data);
       location.goBack();
-      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("user_igrisLogin_setUp_adm", JSON.stringify(data));
     } catch (err) {
       console.log(err);
       setError(true);

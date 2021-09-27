@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../loaing.scss";
 const SinglePage = () => {
-  const getdata = JSON.parse(localStorage.getItem("user"));
-  const PF = "http://localhost:5000/images/";
+  const getdata = JSON.parse(localStorage.getItem("user_igrisLogin_setUp_adm"));
+  const PF = "https://blog-mern-igris.herokuapp.com/images/";
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState([]);
@@ -18,16 +18,21 @@ const SinglePage = () => {
     const sure = window.confirm("Are u sure ?");
     if (sure) {
       try {
-        await axios.delete(`http://localhost:5000/posts/${post._id}`, {
-          data: { username: getdata.username },
-        });
+        await axios.delete(
+          `https://blog-mern-igris.herokuapp.com/posts/${post._id}`,
+          {
+            data: { username: getdata.username },
+          }
+        );
         window.location.replace("/blog");
       } catch (error) {}
     }
   };
   useEffect(() => {
     const post = async () => {
-      const response = await axios.get(`http://localhost:5000/posts/${path}`);
+      const response = await axios.get(
+        `https://blog-mern-igris.herokuapp.com/posts/${path}`
+      );
       setPost(response.data);
       setLoading(true);
       setTitle(response.data.title);
@@ -37,11 +42,14 @@ const SinglePage = () => {
   }, [path]);
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:5000/posts/${post._id}`, {
-        username: getdata.username,
-        title,
-        desc,
-      });
+      await axios.put(
+        `https://blog-mern-igris.herokuapp.com/posts/${post._id}`,
+        {
+          username: getdata.username,
+          title,
+          desc,
+        }
+      );
       window.location.reload();
     } catch (error) {}
   };

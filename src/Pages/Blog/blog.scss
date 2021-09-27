@@ -35,12 +35,13 @@
   }
 }
 .blog_items {
-  margin-top: 5rem;
+  margin-top: 4rem;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 16rem));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
   gap: 2rem;
   justify-content: center;
+  margin-bottom: 3rem;
 }
 .footer {
   margin-top: 4rem;
@@ -76,6 +77,7 @@
     width: 80%;
     margin-left: 35px;
     overflow: hidden;
+    margin-bottom: 10rem;
   }
   .item img {
     width: 100%;

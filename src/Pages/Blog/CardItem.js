@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./carditem.scss";
 import React from "react";
 const CardItem = ({ posts }) => {
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://blog-mern-igris.herokuapp.com/images/";
   const data = posts.map((p) => {
     return (
       <Link

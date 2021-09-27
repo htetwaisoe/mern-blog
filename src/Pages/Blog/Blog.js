@@ -23,9 +23,9 @@ const Home = () => {
   useEffect(() => {
     const getPosts = async () => {
       const response = await axios
-        .get("http://localhost:5000/posts" + search)
+        .get("https://blog-mern-igris.herokuapp.com/posts" + search)
         .catch((err) => console.log(err));
-      console.log();
+      console.log(response.data);
       setPosts(response.data);
       setLoading(true);
     };

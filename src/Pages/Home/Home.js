@@ -1,51 +1,70 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import Carditem from "./CardItem";
+import "../../loaing.scss";
 import "./home.scss";
-
 const Home = () => {
-  return (
-    <div className="container_home">
-      <div>
-        <svg
-          viewBox="0 0 200 200"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{
-            width: "150px",
-            position: "absolute",
-            opacity: "0.5",
-          }}
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const latestPost = async () => {
+    const res = await axios.get(
+      "https://blog-mern-igris.herokuapp.com/latestPost"
+    );
+    setPosts(res.data);
+    setLoading(true);
+  };
+  useEffect(() => {
+    latestPost();
+  }, []);
+
+  const post_data = posts.map(({ _id, photo, title, desc }, index) => {
+    return (
+      <div className="item__" key={index}>
+        <Link
+          to={`post/${_id}`}
+          style={{ textDecoration: "none", color: "inherit" }}
         >
-          <path
-            fill="#9EF0F0"
-            d="M63.8,-23.8C68.3,-6.8,47.7,15.3,25.3,30.6C2.8,46,-21.6,54.6,-36.8,44.9C-52,35.2,-58,7.2,-50.3,-14.1C-42.7,-35.4,-21.3,-49.9,4.1,-51.3C29.6,-52.6,59.2,-40.7,63.8,-23.8Z"
-            transform="translate(100 100)"
-          />
-        </svg>
-        <h1 style={{ textAlign: "center" }}>
-          <span>igris...</span>portfilo
-        </h1>
-
-        <p>
-          "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-          consectetur, adipisci velit..."
-        </p>
-
-        <div className="button_about" style={{ textAlign: "center" }}>
-          <Link to="/about">
-            <button>About me</button>
+          <div className="image__">
+            <img
+              src={`https://blog-mern-igris.herokuapp.com/images/${photo}`}
+              alt=""
+            />
+          </div>
+          <div className="text2__">
+            <h1>{title}</h1>
+            <p>{desc.substring(0, 100)}...</p>
+          </div>
+        </Link>
+      </div>
+    );
+  });
+  return (
+    <div className="main__">
+      <div className="top__">
+        <div className="text__">
+          <h1>igris...</h1>
+          <p>lorem ipsum bla bla bla good job ..... </p>
+        </div>
+        <div className="btn1__">
+          <Link to="about">
+            <button>About Me</button>
           </Link>
         </div>
       </div>
+      {loading ? (
+        <div className="bottom__">
+          <div className="blog_items__">{post_data}</div>
 
-      <div className="blog_item">
-        <Carditem />
-      </div>
-      <div className="button_about" style={{ textAlign: "center" }}>
-        <Link to="/blog">
-          <button>View All Blogs </button>
-        </Link>
-      </div>
+          <div className="btn1__">
+            <Link to={`blog`}>
+              <button>All Blogs</button>
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className="loader"></div>
+      )}
     </div>
   );
 };

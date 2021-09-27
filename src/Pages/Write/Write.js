@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./write.scss";
 import axios from "axios";
 const Write = () => {
-  const getdata = JSON.parse(localStorage.getItem("user"));
+  const getdata = JSON.parse(localStorage.getItem("user_igrisLogin_setUp_adm"));
 
   const [title, setTitle] = useState([]);
   const [desc, setDesc] = useState([]);
@@ -23,13 +23,16 @@ const Write = () => {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("http://localhost:5000/upload", data);
+        await axios.post("https://blog-mern-igris.herokuapp.com/upload", data);
       } catch (err) {
         setErr(true);
       }
     }
     try {
-      const res = await axios.post("http://localhost:5000/posts", newPost);
+      const res = await axios.post(
+        "https://blog-mern-igris.herokuapp.com/posts",
+        newPost
+      );
       window.location.replace("post/" + res.data._id);
     } catch (err) {}
   };

@@ -5,7 +5,7 @@ import "../Header/header.scss";
 import { lists, list } from "./NavList";
 
 const Header = () => {
-  const user = localStorage.getItem("user");
+  const user = localStorage.getItem("user_igrisLogin_setUp_adm");
   const getTheme = () => {
     return JSON.parse(localStorage.getItem("theme")) || false;
   };

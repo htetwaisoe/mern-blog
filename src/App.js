@@ -11,7 +11,7 @@ import SinglePage from "./Pages/Blog/SinglePage";
 import Logout from "./Pages/Auth/Logout";
 import Write from "./Pages/Write/Write";
 function App() {
-  const user = localStorage.getItem("user");
+  const user = localStorage.getItem("user_igrisLogin_setUp_adm");
   return (
     <div
       className="app"

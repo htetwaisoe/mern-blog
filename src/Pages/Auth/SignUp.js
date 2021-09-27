@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 const SignUp = () => {
   const location = useHistory();
   useEffect(() => {
-    const getdata = localStorage.getItem("user");
+    const getdata = localStorage.getItem("user_igrisLogin_setUp_adm");
     if (getdata) {
       location.goBack();
     }
@@ -19,11 +19,14 @@ const SignUp = () => {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("http://localhost:5000/users/register", {
-        username,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://blog-mern-igris.herokuapp.com/users/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
       console.log(res.data);
       res.data && window.location.replace("/authigrisLogin");
     } catch (err) {
